@@ -7,12 +7,43 @@
             background-image: url('Jellyfish.jpg');
             background-size: cover;
             background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
-        #consolas {
-            display: none;
+        header, footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
         }
-        #resultado {
-            margin-top: 20px;
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .button-group, .footer-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .button-group button, .footer-buttons button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button-group button:hover, .footer-buttons button:hover {
+            background-color: #45a049;
         }
         .fade-in {
             opacity: 0;
@@ -75,28 +106,44 @@
     </script>
 </head>
 <body>
-    <!-- Contenido existente -->
-    <h1>Bienvenido a mi página web</h1>
-    <p>Este es un párrafo de ejemplo en mi página web.</p>
-    
-    <!-- Nuevo contenido para seleccionar juegos y consolas -->
-    <h1>Elige el juego:</h1>
-    <button onclick="mostrarConsolas('FES')">Juego 1 (FES)</button>
-    <button onclick="mostrarConsolas('P4V')">Juego 2 (P4V)</button>
-    <button onclick="mostrarConsolas('P3P')">Juego 3 (P3P)</button>
-    <button onclick="mostrarConsolas('P4G')">Juego 4 (P4G)</button>
-    <button onclick="mostrarConsolas('P5')">Juego 5 (P5)</button>
-    <button onclick="mostrarConsolas('P5R')">Juego 6 (P5R)</button>
-    <button onclick="mostrarConsolas('P4D')">Juego 7 (P4D)</button>
-    <button onclick="mostrarConsolas('P5S')">Juego 8 (P5S)</button>
-    <button onclick="mostrarConsolas('PQ')">Juego 9 (PQ)</button>
-    <button onclick="mostrarConsolas('PQ2')">Juego 10 (PQ2)</button>
+    <header>
+        <h1>Guías de Juegos</h1>
+    </header>
 
-    <div id="consolas">
-        <h2>Elige la consola:</h2>
-        <div id="consolasOpciones"></div>
+    <div class="container">
+        <!-- Contenido existente -->
+        <p>Este es un párrafo de ejemplo en mi página web.</p>
+
+        <!-- Nuevo contenido para seleccionar juegos y consolas -->
+        <h2>Elige el juego:</h2>
+        <div class="button-group">
+            <button onclick="mostrarConsolas('FES')">Juego 1 (FES)</button>
+            <button onclick="mostrarConsolas('P4V')">Juego 2 (P4V)</button>
+            <button onclick="mostrarConsolas('P3P')">Juego 3 (P3P)</button>
+            <button onclick="mostrarConsolas('P4G')">Juego 4 (P4G)</button>
+            <button onclick="mostrarConsolas('P5')">Juego 5 (P5)</button>
+            <button onclick="mostrarConsolas('P5R')">Juego 6 (P5R)</button>
+            <button onclick="mostrarConsolas('P4D')">Juego 7 (P4D)</button>
+            <button onclick="mostrarConsolas('P5S')">Juego 8 (P5S)</button>
+            <button onclick="mostrarConsolas('PQ')">Juego 9 (PQ)</button>
+            <button onclick="mostrarConsolas('PQ2')">Juego 10 (PQ2)</button>
+        </div>
+
+        <div id="consolas">
+            <h2>Elige la consola:</h2>
+            <div id="consolasOpciones" class="button-group"></div>
+        </div>
+
+        <div id="resultado"></div>
     </div>
 
-    <div id="resultado"></div>
+    <footer>
+        <div class="footer-buttons">
+            <button>Botón 1</button>
+            <button>Botón 2</button>
+            <button>Botón 3</button>
+        </div>
+        <p>Información adicional en el pie de página</p>
+    </footer>
 </body>
 </html>
