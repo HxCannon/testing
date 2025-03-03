@@ -15,10 +15,15 @@
             min-height: 100vh;
         }
         header, footer {
-            background-color: #333;
+            background-color: transparent;
             color: white;
             text-align: center;
             padding: 10px 0;
+            border-bottom: 1px solid white; /* Línea horizontal separadora */
+        }
+        footer {
+            border-top: 1px solid white; /* Línea horizontal separadora */
+            border-bottom: none;
         }
         .container {
             flex: 1;
@@ -44,6 +49,10 @@
         }
         .button-group button:hover, .footer-buttons button:hover {
             background-color: #45a049;
+        }
+        .footer-buttons {
+            justify-content: space-between; /* Distribuir botones equitativamente */
+            width: 100%; /* Asegurarse de que ocupe todo el ancho del footer */
         }
         .fade-in {
             opacity: 0;
@@ -139,9 +148,9 @@
 
     <footer>
         <div class="footer-buttons">
-            <button>Botón 1</button>
-            <button>Botón 2</button>
-            <button>Botón 3</button>
+            <button style="flex-grow: 1;">Botón 1</button>
+            <button style="flex-grow: 1;">Botón 2</button>
+            <button style="flex-grow: 1;">Botón 3</button>
         </div>
         <p>Información adicional en el pie de página</p>
     </footer>
