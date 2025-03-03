@@ -8,9 +8,70 @@
             background-size: cover;
             background-repeat: no-repeat;
         }
+        #consolas {
+            display: none;
+        }
+        #resultado {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
-    <h1>¡Bienvenido a mi página web!</h1>
-</body>
-</html>
+    <!-- Contenido existente -->
+    <h1>Bienvenido a mi página web</h1>
+    <p>Este es un párrafo de ejemplo en mi página web.</p>
+    
+    <!-- Nuevo contenido para seleccionar juegos y consolas -->
+    <h1>Elige el juego:</h1>
+    <button onclick="mostrarConsolas('FES')">Juego 1 (FES)</button>
+    <button onclick="mostrarConsolas('P4V')">Juego 2 (P4V)</button>
+    <button onclick="mostrarConsolas('P3P')">Juego 3 (P3P)</button>
+    <button onclick="mostrarConsolas('P4G')">Juego 4 (P4G)</button>
+    <button onclick="mostrarConsolas('P5')">Juego 5 (P5)</button>
+    <button onclick="mostrarConsolas('P5R')">Juego 6 (P5R)</button>
+    <button onclick="mostrarConsolas('P4D')">Juego 7 (P4D)</button>
+    <button onclick="mostrarConsolas('P5S')">Juego 8 (P5S)</button>
+    <button onclick="mostrarConsolas('PQ')">Juego 9 (PQ)</button>
+    <button onclick="mostrarConsolas('PQ2')">Juego 10 (PQ2)</button>
+
+    <div id="consolas">
+        <h2>Elige la consola:</h2>
+        <div id="consolasOpciones"></div>
+    </div>
+
+    <div id="resultado"></div>
+
+    <script>
+        const juegos = {
+            'FES': [1, 2, 9],
+            'P4V': [2, 9],
+            'P3P': [1, 2, 4, 5, 9],
+            'P4G': [6, 5, 9],
+            'P5': [3, 4, 9],
+            'P5R': [4, 5, 9],
+            'P4D': [6, 9],
+            'P5S': [4, 5],
+            'PQ': [7, 9],
+            'PQ2': [7, 9]
+        };
+
+        const consolas = {
+            1: 'PS2',
+            2: 'PSP',
+            3: 'PS3',
+            4: 'PS4',
+            5: 'PC',
+            6: 'Vita',
+            7: '3DS',
+            9: 'Emulación'
+        };
+
+        function mostrarConsolas(juego) {
+            const opciones = juegos[juego];
+            const consolasOpciones = document.getElementById('consolasOpciones');
+            consolasOpciones.innerHTML = '';
+
+            opciones.forEach(opcion => {
+                const boton = document.createElement('button');
+                boton.innerText = consolas[opcion];
+                boton.onclick = () =>
