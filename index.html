@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Mi Página Web</title>
+    <title>Guías de Juegos</title>
     <style>
         body {
             background-image: url('Jellyfish.jpg');
@@ -15,32 +15,6 @@
             margin-top: 20px;
         }
     </style>
-</head>
-<body>
-    <!-- Contenido existente -->
-    <h1>Bienvenido a mi página web</h1>
-    <p>Este es un párrafo de ejemplo en mi página web.</p>
-    
-    <!-- Nuevo contenido para seleccionar juegos y consolas -->
-    <h1>Elige el juego:</h1>
-    <button onclick="mostrarConsolas('FES')">Juego 1 (FES)</button>
-    <button onclick="mostrarConsolas('P4V')">Juego 2 (P4V)</button>
-    <button onclick="mostrarConsolas('P3P')">Juego 3 (P3P)</button>
-    <button onclick="mostrarConsolas('P4G')">Juego 4 (P4G)</button>
-    <button onclick="mostrarConsolas('P5')">Juego 5 (P5)</button>
-    <button onclick="mostrarConsolas('P5R')">Juego 6 (P5R)</button>
-    <button onclick="mostrarConsolas('P4D')">Juego 7 (P4D)</button>
-    <button onclick="mostrarConsolas('P5S')">Juego 8 (P5S)</button>
-    <button onclick="mostrarConsolas('PQ')">Juego 9 (PQ)</button>
-    <button onclick="mostrarConsolas('PQ2')">Juego 10 (PQ2)</button>
-
-    <div id="consolas">
-        <h2>Elige la consola:</h2>
-        <div id="consolasOpciones"></div>
-    </div>
-
-    <div id="resultado"></div>
-
     <script>
         const juegos = {
             'FES': [1, 2, 9],
@@ -74,4 +48,42 @@
             opciones.forEach(opcion => {
                 const boton = document.createElement('button');
                 boton.innerText = consolas[opcion];
-                boton.onclick = () =>
+                boton.onclick = () => mostrarResultado(juego, opcion);
+                consolasOpciones.appendChild(boton);
+            });
+
+            document.getElementById('consolas').style.display = 'block';
+        }
+
+        function mostrarResultado(juego, consola) {
+            const resultado = `Elegiste ${juego} para ${consolas[consola]}`;
+            document.getElementById('resultado').innerText = resultado;
+        }
+    </script>
+</head>
+<body>
+    <!-- Contenido existente -->
+    <h1>Bienvenido a mi página web</h1>
+    <p>Este es un párrafo de ejemplo en mi página web.</p>
+    
+    <!-- Nuevo contenido para seleccionar juegos y consolas -->
+    <h1>Elige el juego:</h1>
+    <button onclick="mostrarConsolas('FES')">Juego 1 (FES)</button>
+    <button onclick="mostrarConsolas('P4V')">Juego 2 (P4V)</button>
+    <button onclick="mostrarConsolas('P3P')">Juego 3 (P3P)</button>
+    <button onclick="mostrarConsolas('P4G')">Juego 4 (P4G)</button>
+    <button onclick="mostrarConsolas('P5')">Juego 5 (P5)</button>
+    <button onclick="mostrarConsolas('P5R')">Juego 6 (P5R)</button>
+    <button onclick="mostrarConsolas('P4D')">Juego 7 (P4D)</button>
+    <button onclick="mostrarConsolas('P5S')">Juego 8 (P5S)</button>
+    <button onclick="mostrarConsolas('PQ')">Juego 9 (PQ)</button>
+    <button onclick="mostrarConsolas('PQ2')">Juego 10 (PQ2)</button>
+
+    <div id="consolas">
+        <h2>Elige la consola:</h2>
+        <div id="consolasOpciones"></div>
+    </div>
+
+    <div id="resultado"></div>
+</body>
+</html>
