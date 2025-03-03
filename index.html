@@ -3,6 +3,7 @@
 <head>
     <title>Guías de Juegos</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.11/lottie.min.js"></script>
     <style>
         body {
             background-image: url('Jellyfish.jpg');
@@ -21,10 +22,6 @@
             text-align: center;
             padding: 10px 0;
             border-bottom: 1px solid white; /* Línea horizontal separadora */
-        }
-        footer {
-            border-top: 1px solid white; /* Línea horizontal separadora */
-            border-bottom: none;
         }
         .container {
             flex: 1;
@@ -51,10 +48,6 @@
         .button-group button:hover, .footer-buttons button:hover {
             background-color: #45a049;
         }
-        .footer-buttons {
-            justify-content: space-between; /* Distribuir botones equitativamente */
-            width: 100%; /* Asegurarse de que ocupe todo el ancho del footer */
-        }
         .fade-in {
             opacity: 0;
             animation: fadeInAnimation 1s forwards;
@@ -67,7 +60,57 @@
                 opacity: 1;
             }
         }
+        .footer-buttons {
+            justify-content: space-between; /* Distribuir botones equitativamente */
+        }
+        h2 {
+            text-align: center; /* Centrar el texto */
+        }
     </style>
+</head>
+<body>
+    <div id="backgroundAnimation" style="width: 100%; height: 100vh; position: absolute; top: 0; left: 0; z-index: -1;"></div>
+
+    <header>
+        <h1>Guías de Juegos</h1>
+    </header>
+
+    <div class="container">
+        <!-- Contenido existente -->
+        <p>Este es un párrafo de ejemplo en mi página web.</p>
+
+        <!-- Nuevo contenido para seleccionar juegos y consolas -->
+        <h2>Elige el juego:</h2>
+        <div class="button-group">
+            <button onclick="mostrarConsolas('FES')">Juego 1 (FES)</button>
+            <button onclick="mostrarConsolas('P4V')">Juego 2 (P4V)</button>
+            <button onclick="mostrarConsolas('P3P')">Juego 3 (P3P)</button>
+            <button onclick="mostrarConsolas('P4G')">Juego 4 (P4G')</button>
+            <button onclick="mostrarConsolas('P5')">Juego 5 (P5')</button>
+            <button onclick="mostrarConsolas('P5R')">Juego 6 (P5R')</button>
+            <button onclick="mostrarConsolas('P4D')">Juego 7 (P4D')</button>
+            <button onclick="mostrarConsolas('P5S')">Juego 8 (P5S')</button>
+            <button onclick="mostrarConsolas('PQ')">Juego 9 (PQ')</button>
+            <button onclick="mostrarConsolas('PQ2')">Juego 10 (PQ2')</button>
+        </div>
+
+        <div id="consolas">
+            <h2>Elige la consola:</h2>
+            <div id="consolasOpciones" class="button-group"></div>
+        </div>
+
+        <div id="resultado"></div>
+    </div>
+
+    <footer>
+        <div class="footer-buttons">
+            <button>Botón 1</button>
+            <button>Botón 2</button>
+            <button>Botón 3</button>
+        </div>
+        <p>Información adicional en el pie de página</p>
+    </footer>
+
     <script>
         const juegos = {
             'FES': [1, 2, 9],
@@ -113,47 +156,15 @@
             const resultado = `Elegiste ${juego} para ${consolas[consola]}`;
             document.getElementById('resultado').innerText = resultado;
         }
+
+        // Lottie Animation
+        var animation = bodymovin.loadAnimation({
+            container: document.getElementById('backgroundAnimation'), // ID del contenedor donde se cargará la animación
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'background.json' // Ruta al archivo JSON de tu animación
+        });
     </script>
-</head>
-<body>
-    <header>
-        <h1>Guías de Juegos</h1>
-    </header>
-
-    <div class="container">
-        <!-- Contenido existente -->
-        <p>Este es un párrafo de ejemplo en mi página web.</p>
-
-        <!-- Nuevo contenido para seleccionar juegos y consolas -->
-        <h2>Elige el juego:</h2>
-        <div class="button-group">
-            <button onclick="mostrarConsolas('FES')">Juego 1 (FES)</button>
-            <button onclick="mostrarConsolas('P4V')">Juego 2 (P4V)</button>
-            <button onclick="mostrarConsolas('P3P')">Juego 3 (P3P)</button>
-            <button onclick="mostrarConsolas('P4G')">Juego 4 (P4G)</button>
-            <button onclick="mostrarConsolas('P5')">Juego 5 (P5)</button>
-            <button onclick="mostrarConsolas('P5R')">Juego 6 (P5R)</button>
-            <button onclick="mostrarConsolas('P4D')">Juego 7 (P4D)</button>
-            <button onclick="mostrarConsolas('P5S')">Juego 8 (P5S)</button>
-            <button onclick="mostrarConsolas('PQ')">Juego 9 (PQ)</button>
-            <button onclick="mostrarConsolas('PQ2')">Juego 10 (PQ2)</button>
-        </div>
-
-        <div id="consolas">
-            <h2>Elige la consola:</h2>
-            <div id="consolasOpciones" class="button-group"></div>
-        </div>
-
-        <div id="resultado"></div>
-    </div>
-
-    <footer>
-        <div class="footer-buttons">
-            <button style="flex-grow: 1;">Botón 1</button>
-            <button style="flex-grow: 1;">Botón 2</button>
-            <button style="flex-grow: 1;">Botón 3</button>
-        </div>
-        <p>Información adicional en el pie de página</p>
-    </footer>
 </body>
 </html>
