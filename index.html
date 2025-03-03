@@ -14,6 +14,18 @@
         #resultado {
             margin-top: 20px;
         }
+        .fade-in {
+            opacity: 0;
+            animation: fadeInAnimation 1s forwards;
+        }
+        @keyframes fadeInAnimation {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
     </style>
     <script>
         const juegos = {
@@ -48,6 +60,7 @@
             opciones.forEach(opcion => {
                 const boton = document.createElement('button');
                 boton.innerText = consolas[opcion];
+                boton.classList.add('fade-in'); // Añadir la clase de animación
                 boton.onclick = () => mostrarResultado(juego, opcion);
                 consolasOpciones.appendChild(boton);
             });
