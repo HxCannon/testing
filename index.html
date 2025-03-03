@@ -4,6 +4,8 @@
     <title>Guías de Juegos</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.11/lottie.min.js"></script>
+    <script src="juegos.js"></script>
+    <script src="consolas.js"></script>
     <style>
         body {
             background-image: url('Jellyfish.jpg');
@@ -30,10 +32,16 @@
             justify-content: center;
             align-items: center;
         }
-        .button-group, .footer-buttons {
+        .button-group {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
+        }
+        .footer-buttons {
+            display: flex;
+            justify-content: space-between; /* Distribuir botones equitativamente */
+            width: 100%;
+            padding: 0 20px;
         }
         .button-group button, .footer-buttons button {
             background-color: #4CAF50;
@@ -60,9 +68,6 @@
                 opacity: 1;
             }
         }
-        .footer-buttons {
-            justify-content: space-between; /* Distribuir botones equitativamente */
-        }
         h2 {
             text-align: center; /* Centrar el texto */
         }
@@ -85,10 +90,7 @@
     </header>
 
     <div class="container">
-        <!-- Contenido existente -->
         <p>Este es un párrafo de ejemplo en mi página web.</p>
-
-        <!-- Nuevo contenido para seleccionar juegos y consolas -->
         <h2>Elige el juego:</h2>
         <div class="button-group">
             <button onclick="mostrarConsolas('FES')">Juego 1 (FES)</button>
@@ -121,30 +123,6 @@
     </footer>
 
     <script>
-        const juegos = {
-            'FES': [1, 2, 9],
-            'P4V': [2, 9],
-            'P3P': [1, 2, 4, 5, 9],
-            'P4G': [6, 5, 9],
-            'P5': [3, 4, 9],
-            'P5R': [4, 5, 9],
-            'P4D': [6, 9],
-            'P5S': [4, 5],
-            'PQ': [7, 9],
-            'PQ2': [7, 9]
-        };
-
-        const consolas = {
-            1: 'PS2',
-            2: 'PSP',
-            3: 'PS3',
-            4: 'PS4',
-            5: 'PC',
-            6: 'Vita',
-            7: '3DS',
-            9: 'Emulación'
-        };
-
         function mostrarConsolas(juego) {
             const opciones = juegos[juego];
             const consolasOpciones = document.getElementById('consolasOpciones');
@@ -172,7 +150,7 @@
             renderer: 'svg',
             loop: true,
             autoplay: true,
-            path: 'ruta_de_tu_animacion.json' // Ruta al archivo JSON de tu animación
+            path: 'background.json' // Ruta al archivo JSON de tu animación
         });
     </script>
 </body>
